@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>كشري هند | اطلب أكلتك المفضلة</title>
+  <meta name="description" content="موقع طلبات كشري هند - تصفح المنيو وأرسل طلبك مباشرة على واتساب." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="topbar">🍴 كشري هند — الطعم المصري الأصيل من 1992</div>
+
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="#home">
+        <img src="logo.png" alt="شعار كشري هند">
+        <div>
+          <strong>كشري هند</strong>
+          <span>الطعم الأصلي</span>
+        </div>
+      </a>
+      <nav>
+        <a href="#home">الرئيسية</a>
+        <a href="#menu">المنيو</a>
+        <a href="#offers">العروض</a>
+        <a href="#contact">تواصل معنا</a>
+      </nav>
+      <button class="cart-btn" id="openCart">🛒 <span>السلة</span> <b id="cartCount">0</b></button>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">أكل مصري على أصوله 🇪🇬</span>
+          <h1>الجوعان ملوش غير<br><span>كشري هند</span></h1>
+          <p>كشري، طواجن، حواوشي، فراخ مشوية ووجبات تشبعك وتفرحك — اطلب دلوقتي وخلي الأكل يوصلك.</p>
+          <div class="hero-actions">
+            <a href="#menu" class="btn primary">شوف المنيو</a>
+            <button class="btn outline" onclick="openWhatsApp()">اطلب على واتساب</button>
+          </div>
+          <div class="trust-row">
+            <div><b>⭐ 4.8</b><span>تقييم العملاء</span></div>
+            <div><b>🔥 1992</b><span>من سنة الخبرة</span></div>
+            <div><b>⚡ سريع</b><span>طلبك على واتساب</span></div>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="glow"></div>
+          <img src="logo.png" alt="كشري هند" class="hero-logo">
+          <div class="hero-badge">طعم يِتكرر 😋</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="offers">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="eyebrow">اختياراتنا المميزة</span><h2>عروض ووجبات على المزاج</h2></div>
+          <p>اختار اللي نفسك فيه، ضيفه للسلة، وابعت الطلب مباشرة.</p>
+        </div>
+        <div class="offer-grid">
+          <div class="offer-card"><span>🍲</span><div><h3>وجبات الكشري</h3><p>من الكشري العادي للإكسترا.</p></div></div>
+          <div class="offer-card"><span>🍗</span><div><h3>فراخ مشوية</h3><p>ربع، نصف أو فرخة كاملة.</p></div></div>
+          <div class="offer-card"><span>🍕</span><div><h3>حواوشي وبيتزا</h3><p>اختيارات متنوعة لكل الأذواق.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section menu-section" id="menu">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="eyebrow">اختار أكلك</span><h2>المنيو</h2></div>
+          <div class="filters" id="filters"></div>
+        </div>
+        <div class="menu-grid" id="menuGrid"></div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="container contact-box">
+        <div>
+          <span class="eyebrow">جاهز تطلب؟</span>
+          <h2>طلبك على واتساب في ثواني</h2>
+          <p>اختار أكلك من المنيو، افتح السلة، واضغط إرسال الطلب. الطلب هيتجه مباشرة على واتساب.</p>
+        </div>
+        <button class="btn primary" onclick="openWhatsApp()">ابدأ طلبك الآن 💬</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-brand"><img src="logo.png" alt=""><div><b>كشري هند</b><small>الطعم المصري الأصيل</small></div></div>
+      <div class="footer-credit">الموقع متصمم بإسم <strong>A7MED ASHRAF</strong><br><a href="tel:+201080343968">+201080343968</a></div>
+    </div>
+  </footer>
+
+  <div class="overlay" id="overlay"></div>
+  <aside class="cart-panel" id="cartPanel">
+    <div class="cart-head"><h2>🛒 سلة الطلب</h2><button id="closeCart">✕</button></div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-footer">
+      <div class="total"><span>الإجمالي</span><strong id="cartTotal">0 جنيه</strong></div>
+      <button class="btn primary full" onclick="openWhatsApp()">إرسال الطلب على واتساب 💬</button>
+      <small>سيتم إرسال تفاصيل الطلب إلى 01080343968</small>
+    </div>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+<rect width="800" height="800" rx="400" fill="#d6a94a"/>
+<circle cx="400" cy="400" r="340" fill="#111512" stroke="#f8f1df" stroke-width="18"/>
+<text x="400" y="430" text-anchor="middle" font-family="Arial" font-size="150" font-weight="bold" fill="#d6a94a">هند</text>
+<text x="400" y="540" text-anchor="middle" font-family="Arial" font-size="42" fill="#f8f1df">كشري هند</text>
+</svg>

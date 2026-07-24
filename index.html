@@ -1,107 +1,156 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>كشري هند | الطعم الأصلي من 1992</title>
-<meta name="description" content="اطلب من كشري هند مباشرة عبر واتساب">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="كشري هند - الطعم الأصلي من 1992">
+  <title>كشري هند | الطعم الأصلي من 1992</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="top-line"></div>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home" aria-label="العودة للرئيسية">
+        <div class="logo-mark">هند</div>
+        <div>
+          <strong>كشري هند</strong>
+          <span>الطعم الأصلي من 1992</span>
+        </div>
+      </a>
 
-<header class="header">
-  <div class="container header-row">
-    <div class="brand">
-      <img src="logo.png" alt="شعار كشري هند">
-      <div><h1>كشري هند</h1><small>الطعم الأصلي من 1992</small></div>
+      <nav class="main-nav" id="mainNav">
+        <a href="#home">الرئيسية</a>
+        <a href="#menu">المنيو</a>
+        <a href="#offers">عروض التوفير</a>
+        <a href="#contact">تواصل معنا</a>
+      </nav>
+
+      <button class="cart-button" id="openCart" aria-label="فتح سلة المشتريات">
+        🛒 <span>السلة</span>
+        <b id="cartCount">0</b>
+      </button>
+      <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة">☰</button>
     </div>
-    <nav>
-      <a class="active" href="#home">الرئيسية</a>
-      <a href="#menu">المنيو</a>
-      <a href="#offers">عروض التوفير</a>
-      <a href="#contact">تواصل معنا</a>
-    </nav>
-    <button class="cart-pill" id="openCart">🛒 <span>السلة</span><b id="cartCount">0</b></button>
-  </div>
-</header>
+  </header>
 
-<main id="home">
-<section class="hero">
-  <div class="container hero-grid">
-    <div class="hero-copy">
-      <div class="quality">✦ جودة أصلية ✦</div>
-      <img class="hero-logo" src="logo.png" alt="كشري هند">
-      <h2>كشري هند</h2>
-      <p class="tagline">الطعم الأصلي... من 1992</p>
-      <button class="main-cta" onclick="document.querySelector('#menu').scrollIntoView({behavior:'smooth'})">اطلب الآن 🛒</button>
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">جودة أصلية • طعم مصري أصيل</span>
+          <h1>كشري هند</h1>
+          <p class="hero-subtitle">الطعم الأصلي... من 1992</p>
+          <p class="hero-text">طبقك المفضل، متعمل بحب وبخلطة الطعم اللي اتعودت عليها.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#menu">اطلب الآن</a>
+            <a class="btn btn-outline" href="#offers">شوف العروض</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="plate-glow"></div>
+          <div class="food-bowl">
+            <div class="rice"></div>
+            <div class="pasta"></div>
+            <div class="lentils"></div>
+            <div class="chickpeas"></div>
+            <div class="crispy-onion"></div>
+            <div class="sauce"></div>
+          </div>
+          <span class="floating-tag tag-one">طازة يوميًا</span>
+          <span class="floating-tag tag-two">خلطة هند الأصلية</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="menu">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">اختار اللي نفسك فيه</span>
+          <h2>منيو كشري هند</h2>
+          <p>أصنافنا متقسمة عشان توصل لطلبك بسرعة.</p>
+        </div>
+        <div class="category-tabs" id="categoryTabs"></div>
+        <div class="products-grid" id="productsGrid"></div>
+      </div>
+    </section>
+
+    <section class="section offers-section" id="offers">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">أكل أكتر بسعر أوفر</span>
+          <h2>عروض التوفير</h2>
+          <p>اختيارات مناسبة للعيلة والصحبة.</p>
+        </div>
+        <div class="offers-grid" id="offersGrid"></div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="container contact-card">
+        <div>
+          <span class="eyebrow">جاهزين لطلبك</span>
+          <h2>اطلب دلوقتي من كشري هند</h2>
+          <p>تواصل معنا مباشرة عن طريق واتساب أو الاتصال.</p>
+        </div>
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="https://wa.me/201080343968" target="_blank" rel="noopener">واتساب</a>
+          <a class="btn btn-outline" href="tel:01080343968">اتصل بنا</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="brand footer-brand">
+          <div class="logo-mark">هند</div>
+          <div><strong>كشري هند</strong><span>الطعم الأصلي من 1992</span></div>
+        </div>
+        <p>طعم أصيل، جودة ثابتة، وخلطة اتعملت بحب.</p>
+      </div>
+      <div>
+        <h3>اطلب الآن</h3>
+        <a href="tel:01080343968">01080343968</a>
+        <a href="https://wa.me/201080343968" target="_blank" rel="noopener">واتساب</a>
+      </div>
+      <div>
+        <h3>تصميم الموقع</h3>
+        <p>A7MED ASHRAF</p>
+        <a href="tel:+201080343968">+201080343968</a>
+      </div>
     </div>
-    <div class="hero-food">
-      <div class="steam s1"></div><div class="steam s2"></div><div class="steam s3"></div>
-      <div class="bowl big-bowl"><div class="rice"></div><div class="sauce"></div><div class="onion"></div><div class="chickpeas"></div></div>
-      <div class="mini-bowl b1"><div class="sauce"></div></div>
-      <div class="mini-bowl b2"><div class="onion"></div></div>
-      <div class="pepper p1"></div><div class="pepper p2"></div>
+    <div class="copyright">© 2026 كشري هند - جميع الحقوق محفوظة</div>
+  </footer>
+
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="سلة المشتريات">
+    <div class="cart-header">
+      <h2>سلة المشتريات</h2>
+      <button id="closeCart" aria-label="إغلاق السلة">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer">
+      <div class="total-row"><span>الإجمالي</span><strong id="cartTotal">0 جنيه</strong></div>
+      <button class="btn btn-primary full-width" id="checkoutBtn">إتمام الطلب عبر واتساب</button>
+    </div>
+  </aside>
+
+  <div class="modal-backdrop" id="checkoutModal">
+    <div class="checkout-modal">
+      <button class="modal-close" id="closeModal">✕</button>
+      <h2>بيانات الطلب</h2>
+      <p>اكتب بياناتك عشان نجهز طلبك.</p>
+      <form id="checkoutForm">
+        <label>الاسم<input name="name" required placeholder="اكتب اسمك"></label>
+        <label>رقم الهاتف<input name="phone" required type="tel" placeholder="رقم الهاتف"></label>
+        <label>العنوان<textarea name="address" required placeholder="العنوان بالتفصيل"></textarea></label>
+        <label>ملاحظات<textarea name="notes" placeholder="أي ملاحظات على الطلب"></textarea></label>
+        <button class="btn btn-primary full-width" type="submit">إرسال الطلب على واتساب</button>
+      </form>
     </div>
   </div>
-</section>
 
-<section class="category-bar">
-  <div class="container categories">
-    <button class="category active" onclick="setCat('كشري')"><span>🍲</span><b>كشري</b></button>
-    <button class="category" onclick="setCat('كريب وحواوشي')"><span>🥙</span><b>حواوشي</b></button>
-    <button class="category" onclick="setCat('فراخ')"><span>🍗</span><b>قسم الفراخ</b></button>
-    <button class="category" onclick="setCat('عروض')"><span>🏷️</span><b>عروض التوفير</b></button>
-    <button class="category" onclick="setCat('مشروبات')"><span>🥤</span><b>المشروبات</b></button>
-  </div>
-</section>
-
-<section class="section" id="menu">
-  <div class="container">
-    <div class="section-head"><span>اختار وجبتك</span><h2 id="menuTitle">الكشري</h2></div>
-    <div class="menu-grid" id="menuGrid"></div>
-  </div>
-</section>
-
-<section class="section offers" id="offers">
-  <div class="container">
-    <div class="section-head"><span>وفر أكتر</span><h2>عروض التوفير</h2></div>
-    <div class="offer-grid">
-      <article class="offer"><div class="offer-art mini-koshary"></div><div><h3>عرض كشري هند</h3><p>٢ كشري كبير + ٢ ملوخية عالي</p><strong>75 جنيه</strong></div></article>
-      <article class="offer"><div class="offer-art family"></div><div><h3>عرض العيلة</h3><p>٣ كشري كبير + طبق بامية عالي + ٢ حواوشي</p><strong>160 جنيه</strong></div></article>
-      <article class="offer"><div class="offer-art super"></div><div><h3>عرض السوبر</h3><p>٤ كشري كبير + ٢ ملوخية عالي + ٤ حواوشي</p><strong>260 جنيه</strong></div></article>
-    </div>
-  </div>
-</section>
-
-<section class="section contact" id="contact">
-  <div class="container contact-card">
-    <div><span>جاهز تطلب؟</span><h2>اطلب الآن عبر واتساب</h2><p>اختار طلبك من المنيو وسيتم تجهيز رسالة الطلب تلقائيًا.</p></div>
-    <button class="main-cta" onclick="openWhatsApp()">واتساب 💬</button>
-  </div>
-</section>
-</main>
-
-<footer>
-  <div class="container footer-grid">
-    <div><b>🛵 خدمة سريعة</b><small>جودة مضمونة</small></div>
-    <div><b>☎ للطلب والاستفسار</b><a href="tel:+201080343968">01080343968</a></div>
-    <div><b>تابعنا على</b><small>Facebook · Instagram · WhatsApp</small></div>
-    <div><b>تم تصميم الموقع بواسطة</b><strong>A7MED ASHRAF</strong><small>+201080343968</small></div>
-  </div>
-  <div class="copyright">© جميع الحقوق محفوظة لـ كشري هند</div>
-</footer>
-
-<div class="overlay" id="overlay"></div>
-<aside class="cart" id="cartPanel">
-  <div class="cart-head"><h2>سلة المشتريات 🛒</h2><button id="closeCart">×</button></div>
-  <div id="cartItems" class="cart-items"></div>
-  <div class="cart-bottom"><div><span>الإجمالي</span><b id="cartTotal">0 جنيه</b></div><button class="main-cta full" onclick="openWhatsApp()">اطلب الآن عبر واتساب</button><strong class="phone">01080343968</strong></div>
-</aside>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

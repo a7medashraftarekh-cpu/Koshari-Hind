@@ -1,30 +1,229 @@
-const WA="201080343968";
-const menu=[
-{cat:"كشري",name:"كشري صغير",price:15,desc:"أرز - مكرونة - عدس - حمص - بصل - صلصة"},
-{cat:"كشري",name:"كشري وسط",price:20,desc:"أرز - مكرونة - عدس - حمص - بصل - صلصة"},
-{cat:"كشري",name:"كشري كبير",price:25,desc:"أرز - مكرونة - عدس - حمص - بصل - صلصة"},
-{cat:"كشري",name:"كشري سوبر جامبو",price:30,desc:"وجبة كبيرة لمحبي الكشري"},
-{cat:"كشري",name:"كشري هند",price:40,desc:"وجبة مميزة من كشري هند"},
-{cat:"كريب وحواوشي",name:"حواوشي عادي",price:40,desc:"حواوشي طازج ومشبع"},
-{cat:"كريب وحواوشي",name:"حواوشي جبنة",price:50,desc:"حواوشي مع جبنة"},
-{cat:"كريب وحواوشي",name:"حواوشي خاص",price:55,desc:"اختيار خاص ومميز"},
-{cat:"فراخ",name:"ربع فرخة",price:85,desc:"مشوية بطعم أصيل"},
-{cat:"فراخ",name:"نصف فرخة",price:160,desc:"نصف فرخة مشوية"},
-{cat:"فراخ",name:"فرخة كاملة",price:300,desc:"فرخة كاملة مشوية"},
-{cat:"عروض",name:"عرض كشري هند",price:75,desc:"٢ كشري كبير + ٢ ملوخية عالي"},
-{cat:"عروض",name:"عرض العيلة",price:160,desc:"٣ كشري كبير + طبق بامية عالي + ٢ حواوشي"},
-{cat:"عروض",name:"عرض السوبر",price:260,desc:"٤ كشري كبير + ٢ ملوخية عالي + ٤ حواوشي"},
-{cat:"مشروبات",name:"بيبسي",price:20,desc:"مشروب غازي"},
-{cat:"مشروبات",name:"مياه معدنية",price:10,desc:"مياه باردة"}
+const products = [
+  { id: 1, category: "koshary", name: "كشري صغير", description: "أرز ومكرونة وعدس وحمص وصلصة وبصل مقرمش.", price: 20, icon: "🍲" },
+  { id: 2, category: "koshary", name: "كشري وسط", description: "خلطة كشري هند الأصلية بحجم مناسب.", price: 25, icon: "🍲" },
+  { id: 3, category: "koshary", name: "كشري كبير", description: "طبق كبير مليان من كل مكونات الكشري.", price: 30, icon: "🍲" },
+  { id: 4, category: "koshary", name: "كشري سوبر", description: "وجبة أكبر لمحبي الكشري.", price: 35, icon: "🍲" },
+  { id: 5, category: "koshary", name: "كشري جامبو", description: "حجم جامبو من خلطة كشري هند.", price: 40, icon: "🍲" },
+  { id: 6, category: "koshary", name: "كشري هند", description: "اختيار مميز من كشري هند.", price: 50, icon: "👑" },
+
+  { id: 7, category: "hawawshi", name: "حواوشي عادي", description: "رغيف حواوشي محمص بحشوة متبلة.", price: 35, icon: "🥙" },
+  { id: 8, category: "hawawshi", name: "حواوشي جبنة", description: "حواوشي مع إضافة جبنة.", price: 40, icon: "🥙" },
+  { id: 9, category: "hawawshi", name: "حواوشي سوبر", description: "حواوشي بحجم أكبر وحشوة أغنى.", price: 45, icon: "🥙" },
+  { id: 10, category: "hawawshi", name: "حواوشي ميكس", description: "اختيار مميز من الحواوشي.", price: 50, icon: "🥙" },
+
+  { id: 11, category: "chicken", name: "ربع فرخة", description: "فراخ مشوية بتتبيلة شرقية.", price: 85, icon: "🍗" },
+  { id: 12, category: "chicken", name: "نصف فرخة", description: "نصف فرخة مشوية.", price: 160, icon: "🍗" },
+  { id: 13, category: "chicken", name: "فرخة كاملة", description: "فرخة كاملة مناسبة للمشاركة.", price: 300, icon: "🍗" },
+
+  { id: 14, category: "hawawshi", name: "كريب فراخ", description: "كريب بحشوة الفراخ.", price: 45, icon: "🌯" },
+  { id: 15, category: "hawawshi", name: "كريب ميكس", description: "كريب ميكس بحشوة متنوعة.", price: 50, icon: "🌯" },
+  { id: 16, category: "hawawshi", name: "كريب مشكل جبنة", description: "كريب مع تشكيلة جبن.", price: 55, icon: "🌯" },
+
+  { id: 17, category: "drinks", name: "بيبسي", description: "مشروب غازي بارد.", price: 15, icon: "🥤" },
+  { id: 18, category: "drinks", name: "مياه معدنية", description: "مياه معدنية باردة.", price: 10, icon: "💧" },
+  { id: 19, category: "drinks", name: "عصير", description: "اختيار من العصائر المتاحة.", price: 20, icon: "🧃" }
 ];
-let cart=JSON.parse(localStorage.getItem("kh_cart_v3")||"[]"),activeCat="كشري";
-function setCat(cat){activeCat=cat;document.getElementById("menuTitle").textContent=cat==="كريب وحواوشي"?"الحواوشي":cat;document.querySelectorAll(".category").forEach(b=>b.classList.toggle("active",b.textContent.includes(cat==="كريب وحواوشي"?"حواوشي":cat)));renderMenu();document.querySelector("#menu").scrollIntoView({behavior:"smooth"})}
-function renderMenu(){let items=menu.filter(x=>x.cat===activeCat);document.getElementById("menuGrid").innerHTML=items.map((x,i)=>`<article class="item"><div class="food-art"></div><h3>${x.name}</h3><p>${x.desc}</p><div class="price">${x.price} جنيه</div><button class="add" onclick="addToCart(${menu.indexOf(x)})">أضف +</button></article>`).join("")}
-function addToCart(i){let x=menu[i],f=cart.find(y=>y.name===x.name);f?f.qty++:cart.push({...x,qty:1});saveCart();openCart()}
-function changeQty(name,d){let x=cart.find(y=>y.name===name);if(!x)return;x.qty+=d;if(x.qty<=0)cart=cart.filter(y=>y.name!==name);saveCart()}
-function saveCart(){localStorage.setItem("kh_cart_v3",JSON.stringify(cart));renderCart()}
-function renderCart(){let count=cart.reduce((s,x)=>s+x.qty,0),total=cart.reduce((s,x)=>s+x.price*x.qty,0);document.getElementById("cartCount").textContent=count;document.getElementById("cartTotal").textContent=total+" جنيه";document.getElementById("cartItems").innerHTML=cart.length?cart.map(x=>`<div class="cart-row"><div><h4>${x.name}</h4><small>${x.price} جنيه × ${x.qty}</small></div><div class="qty"><button onclick="changeQty('${x.name}',-1)">−</button><b>${x.qty}</b><button onclick="changeQty('${x.name}',1)">+</button></div></div>`).join(""):"<p style='text-align:center;color:#999;padding:50px 0'>السلة فاضية 😅</p>"}
-function openCart(){document.getElementById("cartPanel").classList.add("open");document.getElementById("overlay").classList.add("show")}
-function closeCart(){document.getElementById("cartPanel").classList.remove("open");document.getElementById("overlay").classList.remove("show")}
-function openWhatsApp(){if(!cart.length){alert("ضيف طلب للسلة الأول 😄");return}let total=cart.reduce((s,x)=>s+x.price*x.qty,0),msg="السلام عليكم، عايز أطلب من كشري هند:%0A%0A";cart.forEach(x=>msg+=`• ${x.name} × ${x.qty} = ${x.price*x.qty} جنيه%0A`);msg+=`%0Aالإجمالي: ${total} جنيه`;window.open(`https://wa.me/${WA}?text=${msg}`,"_blank")}
-document.getElementById("openCart").onclick=openCart;document.getElementById("closeCart").onclick=closeCart;document.getElementById("overlay").onclick=closeCart;renderMenu();renderCart();
+
+const offers = [
+  { name: "عرض التوفير 1", items: ["فرخة كاملة", "2 طبق كشري"], price: "260 جنيه" },
+  { name: "عرض التوفير 2", items: ["3 كشري وسط", "2 حواوشي"], price: "330 جنيه" },
+  { name: "عرض كشري هند", items: ["2 كشري كبير", "2 ملوخية عالي"], price: "حسب المنيو الأصلية" }
+];
+
+const categoryNames = {
+  all: "كل المنيو",
+  koshary: "الكشري",
+  hawawshi: "الحواوشي والكريب",
+  chicken: "الفراخ",
+  drinks: "المشروبات"
+};
+
+let cart = JSON.parse(localStorage.getItem("kosharyHendCart") || "[]");
+let activeCategory = "all";
+
+const productsGrid = document.getElementById("productsGrid");
+const categoryTabs = document.getElementById("categoryTabs");
+const offersGrid = document.getElementById("offersGrid");
+const cartDrawer = document.getElementById("cartDrawer");
+const cartOverlay = document.getElementById("cartOverlay");
+const cartItems = document.getElementById("cartItems");
+const cartCount = document.getElementById("cartCount");
+const cartTotal = document.getElementById("cartTotal");
+const checkoutModal = document.getElementById("checkoutModal");
+
+function renderCategories() {
+  categoryTabs.innerHTML = Object.entries(categoryNames).map(([key, name]) =>
+    `<button class="${activeCategory === key ? "active" : ""}" data-category="${key}">${name}</button>`
+  ).join("");
+  categoryTabs.querySelectorAll("button").forEach(btn => {
+    btn.addEventListener("click", () => {
+      activeCategory = btn.dataset.category;
+      renderCategories();
+      renderProducts();
+    });
+  });
+}
+
+function renderProducts() {
+  const filtered = activeCategory === "all"
+    ? products
+    : products.filter(p => p.category === activeCategory);
+
+  productsGrid.innerHTML = filtered.map(product => `
+    <article class="product-card">
+      <div class="product-visual visual-${product.category}">
+        <span class="food-icon">${product.icon}</span>
+      </div>
+      <div class="product-info">
+        <h3>${product.name}</h3>
+        <p>${product.description}</p>
+        <div class="product-bottom">
+          <span class="price">${product.price} جنيه</span>
+          <button class="add-btn" data-id="${product.id}">أضف +</button>
+        </div>
+      </div>
+    </article>
+  `).join("");
+
+  productsGrid.querySelectorAll(".add-btn").forEach(btn => {
+    btn.addEventListener("click", () => addToCart(Number(btn.dataset.id)));
+  });
+}
+
+function addToCart(id) {
+  const item = cart.find(i => i.id === id);
+  if (item) item.qty++;
+  else cart.push({ id, qty: 1 });
+  saveCart();
+  openCart();
+}
+
+function changeQty(id, amount) {
+  const item = cart.find(i => i.id === id);
+  if (!item) return;
+  item.qty += amount;
+  if (item.qty <= 0) cart = cart.filter(i => i.id !== id);
+  saveCart();
+}
+
+function saveCart() {
+  localStorage.setItem("kosharyHendCart", JSON.stringify(cart));
+  renderCart();
+}
+
+function renderCart() {
+  const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+  const total = cart.reduce((sum, item) => {
+    const product = products.find(p => p.id === item.id);
+    return sum + product.price * item.qty;
+  }, 0);
+
+  cartCount.textContent = totalItems;
+  cartTotal.textContent = `${total} جنيه`;
+
+  if (!cart.length) {
+    cartItems.innerHTML = `<div class="empty-cart">السلة فاضية حاليًا 🛒<br>اختار أكلك المفضل وابدأ الطلب.</div>`;
+    return;
+  }
+
+  cartItems.innerHTML = cart.map(item => {
+    const product = products.find(p => p.id === item.id);
+    return `
+      <div class="cart-item">
+        <div>
+          <h4>${product.name}</h4>
+          <small>${product.price * item.qty} جنيه</small>
+          <div class="qty-controls">
+            <button data-action="minus" data-id="${product.id}">−</button>
+            <strong>${item.qty}</strong>
+            <button data-action="plus" data-id="${product.id}">+</button>
+          </div>
+        </div>
+        <div>${product.icon}</div>
+      </div>
+    `;
+  }).join("");
+
+  cartItems.querySelectorAll("button").forEach(btn => {
+    const amount = btn.dataset.action === "plus" ? 1 : -1;
+    btn.addEventListener("click", () => changeQty(Number(btn.dataset.id), amount));
+  });
+}
+
+function openCart() {
+  cartDrawer.classList.add("open");
+  cartOverlay.classList.add("open");
+}
+function closeCart() {
+  cartDrawer.classList.remove("open");
+  cartOverlay.classList.remove("open");
+}
+
+function openCheckout() {
+  if (!cart.length) {
+    alert("السلة فاضية. اختار المنتجات الأول.");
+    return;
+  }
+  checkoutModal.classList.add("open");
+}
+function closeCheckout() {
+  checkoutModal.classList.remove("open");
+}
+
+document.getElementById("openCart").addEventListener("click", openCart);
+document.getElementById("closeCart").addEventListener("click", closeCart);
+cartOverlay.addEventListener("click", closeCart);
+document.getElementById("checkoutBtn").addEventListener("click", openCheckout);
+document.getElementById("closeModal").addEventListener("click", closeCheckout);
+
+document.getElementById("checkoutForm").addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const formData = new FormData(event.target);
+  const name = formData.get("name");
+  const phone = formData.get("phone");
+  const address = formData.get("address");
+  const notes = formData.get("notes");
+
+  const lines = cart.map(item => {
+    const product = products.find(p => p.id === item.id);
+    return `${product.name} × ${item.qty} = ${product.price * item.qty} جنيه`;
+  });
+
+  const total = cart.reduce((sum, item) => {
+    const product = products.find(p => p.id === item.id);
+    return sum + product.price * item.qty;
+  }, 0);
+
+  const message = [
+    "السلام عليكم، عايز أطلب من كشري هند:",
+    "",
+    ...lines,
+    "",
+    `الإجمالي: ${total} جنيه`,
+    "",
+    `الاسم: ${name}`,
+    `رقم الهاتف: ${phone}`,
+    `العنوان: ${address}`,
+    `ملاحظات: ${notes || "لا يوجد"}`
+  ].join("\n");
+
+  window.open(`https://wa.me/201080343968?text=${encodeURIComponent(message)}`, "_blank");
+});
+
+document.getElementById("menuToggle").addEventListener("click", () => {
+  document.getElementById("mainNav").classList.toggle("open");
+});
+
+offersGrid.innerHTML = offers.map(offer => `
+  <article class="offer-card">
+    <h3>${offer.name}</h3>
+    <ul>${offer.items.map(item => `<li>${item}</li>`).join("")}</ul>
+    <div class="offer-price">${offer.price}</div>
+    <a class="btn btn-outline" href="#menu">اختار طلبك</a>
+  </article>
+`).join("");
+
+renderCategories();
+renderProducts();
+renderCart();

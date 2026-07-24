@@ -1,229 +1,61 @@
-const products = [
-  { id: 1, category: "koshary", name: "كشري صغير", description: "أرز ومكرونة وعدس وحمص وصلصة وبصل مقرمش.", price: 20, icon: "🍲", image: "assets/food-koshary/koshary-small.svg" },
-  { id: 2, category: "koshary", name: "كشري وسط", description: "خلطة كشري هند الأصلية بحجم مناسب.", price: 25, icon: "🍲", image: "assets/food-koshary/koshary-small.svg" },
-  { id: 3, category: "koshary", name: "كشري كبير", description: "طبق كبير مليان من كل مكونات الكشري.", price: 30, icon: "🍲", image: "assets/food-koshary/koshary-small.svg" },
-  { id: 4, category: "koshary", name: "كشري سوبر", description: "وجبة أكبر لمحبي الكشري.", price: 35, icon: "🍲", image: "assets/food-koshary/koshary-small.svg" },
-  { id: 5, category: "koshary", name: "كشري جامبو", description: "حجم جامبو من خلطة كشري هند.", price: 40, icon: "🍲", image: "assets/food-koshary/koshary-small.svg" },
-  { id: 6, category: "koshary", name: "كشري هند", description: "اختيار مميز من كشري هند.", price: 50, icon: "👑", image: "assets/food-koshary/koshary-large.svg" },
-
-  { id: 7, category: "hawawshi", name: "حواوشي عادي", description: "رغيف حواوشي محمص بحشوة متبلة.", price: 35, icon: "🥙", image: "assets/food-hawawshi/hawawshi.svg" },
-  { id: 8, category: "hawawshi", name: "حواوشي جبنة", description: "حواوشي مع إضافة جبنة.", price: 40, icon: "🥙", image: "assets/food-hawawshi/hawawshi.svg" },
-  { id: 9, category: "hawawshi", name: "حواوشي سوبر", description: "حواوشي بحجم أكبر وحشوة أغنى.", price: 45, icon: "🥙", image: "assets/food-hawawshi/hawawshi.svg" },
-  { id: 10, category: "hawawshi", name: "حواوشي ميكس", description: "اختيار مميز من الحواوشي.", price: 50, icon: "🥙", image: "assets/food-hawawshi/hawawshi.svg" },
-
-  { id: 11, category: "chicken", name: "ربع فرخة", description: "فراخ مشوية بتتبيلة شرقية.", price: 85, icon: "🍗", image: "assets/food-chicken/chicken.svg" },
-  { id: 12, category: "chicken", name: "نصف فرخة", description: "نصف فرخة مشوية.", price: 160, icon: "🍗", image: "assets/food-chicken/chicken.svg" },
-  { id: 13, category: "chicken", name: "فرخة كاملة", description: "فرخة كاملة مناسبة للمشاركة.", price: 300, icon: "🍗", image: "assets/food-chicken/chicken.svg" },
-
-  { id: 14, category: "hawawshi", name: "كريب فراخ", description: "كريب بحشوة الفراخ.", price: 45, icon: "🌯", image: "assets/food-hawawshi/hawawshi.svg" },
-  { id: 15, category: "hawawshi", name: "كريب ميكس", description: "كريب ميكس بحشوة متنوعة.", price: 50, icon: "🌯", image: "assets/food-hawawshi/hawawshi.svg" },
-  { id: 16, category: "hawawshi", name: "كريب مشكل جبنة", description: "كريب مع تشكيلة جبن.", price: 55, icon: "🌯", image: "assets/food-hawawshi/hawawshi.svg" },
-
-  { id: 17, category: "drinks", name: "بيبسي", description: "مشروب غازي بارد.", price: 15, icon: "🥤", image: "assets/drinks/drinks.svg" },
-  { id: 18, category: "drinks", name: "مياه معدنية", description: "مياه معدنية باردة.", price: 10, icon: "💧", image: "assets/drinks/drinks.svg" },
-  { id: 19, category: "drinks", name: "عصير", description: "اختيار من العصائر المتاحة.", price: 20, icon: "🧃", image: "assets/drinks/drinks.svg" }
+const menu = [
+ {n:"علبة هندي",c:"كشري",p:20,i:"https://kimi-web-img.moonshot.cn/img/img.youm7.com/5beb6553a3a2b9171d6df178e56df1c6535664e0.jpg"},
+ {n:"كشري سوبر",c:"كشري",p:25,i:"https://kimi-web-img.moonshot.cn/img/img.youm7.com/fc9c57a455adb795860f0eeb07736c8598718a5a.jpg"},
+ {n:"كشري ميجا",c:"كشري",p:30,i:"https://kimi-web-img.moonshot.cn/img/img.youm7.com/5beb6553a3a2b9171d6df178e56df1c6535664e0.jpg"},
+ {n:"كشري إكسترا",c:"كشري",p:35,i:"https://kimi-web-img.moonshot.cn/img/img.youm7.com/fc9c57a455adb795860f0eeb07736c8598718a5a.jpg"},
+ {n:"كشري إسبشيال",c:"كشري",p:40,i:"https://kimi-web-img.moonshot.cn/img/img.youm7.com/5beb6553a3a2b9171d6df178e56df1c6535664e0.jpg"},
+ {n:"كشري هند عائلي",c:"كشري",p:45,i:"https://kimi-web-img.moonshot.cn/img/img.youm7.com/5beb6553a3a2b9171d6df178e56df1c6535664e0.jpg"},
+ {n:"كشري هند جامبو",c:"كشري",p:50,i:"https://kimi-web-img.moonshot.cn/img/img.youm7.com/fc9c57a455adb795860f0eeb07736c8598718a5a.jpg"},
+ {n:"طاجن فراخ",c:"طواجن",p:40,i:"https://kimi-web-img.moonshot.cn/img/img.youm7.com/fcc8fd7582457a8fa24b782c7da61c88ed83d829.jfif"},
+ {n:"طاجن لحمة",c:"طواجن",p:35,i:"https://kimi-web-img.moonshot.cn/img/elwasfa.com/0b8cbc9acd9617f37160a326ba8072b3b262c0a4.jpg"},
+ {n:"ميكس طاجن فراخ",c:"طواجن",p:55,i:"https://kimi-web-img.moonshot.cn/img/img.youm7.com/fcc8fd7582457a8fa24b782c7da61c88ed83d829.jfif"},
+ {n:"ميكس طاجن لحمة",c:"طواجن",p:50,i:"https://kimi-web-img.moonshot.cn/img/elwasfa.com/0b8cbc9acd9617f37160a326ba8072b3b262c0a4.jpg"},
+ {n:"طاجن فراخ موزاريلا",c:"طواجن",p:60,i:"https://kimi-web-img.moonshot.cn/img/img.youm7.com/fcc8fd7582457a8fa24b782c7da61c88ed83d829.jfif"},
+ {n:"فتة فراخ",c:"سوري",p:80,i:"https://kimi-web-img.moonshot.cn/img/asif.org/811b3c58aab450df15234a0f91bdbb5565dca4b8.jpg"},
+ {n:"وجبة زنجبر",c:"سوري",p:95,i:"https://kimi-web-img.moonshot.cn/img/i0.wp.com/2fb59f0c318c6a202e6cca728842b94ea5ebc6a6.jpg"},
+ {n:"وجبة عربي سبيسو",c:"سوري",p:90,i:"https://kimi-web-img.moonshot.cn/img/i0.wp.com/2fb59f0c318c6a202e6cca728842b94ea5ebc6a6.jpg"},
+ {n:"وجبة عربي سوري",c:"سوري",p:125,i:"https://kimi-web-img.moonshot.cn/img/i0.wp.com/2fb59f0c318c6a202e6cca728842b94ea5ebc6a6.jpg"},
+ {n:"وجبة عربي دبل",c:"سوري",p:155,i:"https://kimi-web-img.moonshot.cn/img/i0.wp.com/2fb59f0c318c6a202e6cca728842b94ea5ebc6a6.jpg"},
+ {n:"بيتزا سوري",c:"سوري",p:105,i:"https://kimi-web-img.moonshot.cn/img/elwasfa.com/d998b539356801f6a6c2f8ad58c44891bc1c378e.jpg"},
+ {n:"دبل ورق",c:"سوري",p:155,i:"https://kimi-web-img.moonshot.cn/img/asif.org/811b3c58aab450df15234a0f91bdbb5565dca4b8.jpg"},
+ {n:"كريب شاورما لحمة",c:"كريب",p:70,i:"https://kimi-web-img.moonshot.cn/img/papai.online/c52fdda58635b0303d954daa0e99541f3376a190.png"},
+ {n:"كريب برجر",c:"كريب",p:60,i:"https://kimi-web-img.moonshot.cn/img/papai.online/94e63da4c2d8cb36b6706a17c72c4291e1e664bc.png"},
+ {n:"كريب كفتة",c:"كريب",p:55,i:"https://kimi-web-img.moonshot.cn/img/papai.online/c52fdda58635b0303d954daa0e99541f3376a190.png"},
+ {n:"كريب سوسيس",c:"كريب",p:55,i:"https://kimi-web-img.moonshot.cn/img/majesty.com.eg/88540b55a042f06686901e1f7f10490047f16ebd.png"},
+ {n:"كريب شيش طاووق",c:"كريب",p:70,i:"https://kimi-web-img.moonshot.cn/img/papai.online/94e63da4c2d8cb36b6706a17c72c4291e1e664bc.png"},
+ {n:"كريب مشكل لحوم",c:"كريب",p:80,i:"https://kimi-web-img.moonshot.cn/img/wasallyeg.com/402c42fe68d061f39779c37db1321a193158c831.webp"},
+ {n:"كريب سجق",c:"كريب",p:60,i:"https://kimi-web-img.moonshot.cn/img/majesty.com.eg/88540b55a042f06686901e1f7f10490047f16ebd.png"},
+ {n:"كريب بطاطس فراخ",c:"كريب",p:45,i:"https://kimi-web-img.moonshot.cn/img/hero-food.com/8c5d9485b13b2034dcb2436efbe418b2231852aa.jpg"},
+ {n:"كريب بطاطس ميكس",c:"كريب",p:50,i:"https://kimi-web-img.moonshot.cn/img/hero-food.com/1328cbc1ac598a894242ad93c874e70ecee20796.jpg"},
+ {n:"كريب مشكل جبن",c:"كريب",p:45,i:"https://kimi-web-img.moonshot.cn/img/hero-food.com/1328cbc1ac598a894242ad93c874e70ecee20796.jpg"},
+ {n:"ربع فرخة",c:"مشويات",p:85,i:"https://kimi-web-img.moonshot.cn/img/www.atyabtabkha.com/daf1ff052346dee4a68975453ab1821eb268d3c0.jpg"},
+ {n:"نصف فرخة",c:"مشويات",p:180,i:"https://kimi-web-img.moonshot.cn/img/www.atyabtabkha.com/daf1ff052346dee4a68975453ab1821eb268d3c0.jpg"},
+ {n:"فرخة كاملة",c:"مشويات",p:340,i:"https://kimi-web-img.moonshot.cn/img/www.atyabtabkha.com/daf1ff052346dee4a68975453ab1821eb268d3c0.jpg"},
+ {n:"بيتزا إيطالي",c:"بيتزا",p:70,i:"https://kimi-web-img.moonshot.cn/img/elwasfa.com/d998b539356801f6a6c2f8ad58c44891bc1c378e.jpg"},
+ {n:"بيتزا شرقي",c:"بيتزا",p:85,i:"https://kimi-web-img.moonshot.cn/img/elwasfa.com/d998b539356801f6a6c2f8ad58c44891bc1c378e.jpg"},
+ {n:"فطير حلو",c:"بيتزا",p:50,i:"https://kimi-web-img.moonshot.cn/img/hero-food.com/d9903afccea158acdf6ca39b0f4e7bc3f3b5c5a7.jpg"},
+ {n:"فطير حادق",c:"بيتزا",p:110,i:"https://kimi-web-img.moonshot.cn/img/elwasfa.com/d998b539356801f6a6c2f8ad58c44891bc1c378e.jpg"},
+ {n:"فطير كشري",c:"بيتزا",p:125,i:"https://kimi-web-img.moonshot.cn/img/img.youm7.com/5beb6553a3a2b9171d6df178e56df1c6535664e0.jpg"},
+ {n:"هوجز + شيكولاتة",c:"حلو",p:40,i:"https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400"},
+ {n:"موز + شيكولاتة",c:"حلو",p:40,i:"https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400"},
+ {n:"مكسرات + شيكولاتة",c:"حلو",p:50,i:"https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400"},
+ {n:"موز + مكسرات + عسل",c:"حلو",p:55,i:"https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400"}
 ];
-
-const offers = [
-  { name: "عرض التوفير 1", items: ["فرخة كاملة", "2 طبق كشري"], price: "260 جنيه" },
-  { name: "عرض التوفير 2", items: ["3 كشري وسط", "2 حواوشي"], price: "330 جنيه" },
-  { name: "عرض كشري هند", items: ["2 كشري كبير", "2 ملوخية عالي"], price: "حسب المنيو الأصلية" }
-];
-
-const categoryNames = {
-  all: "كل المنيو",
-  koshary: "الكشري",
-  hawawshi: "الحواوشي والكريب",
-  chicken: "الفراخ",
-  drinks: "المشروبات"
-};
-
-let cart = JSON.parse(localStorage.getItem("kosharyHendCart") || "[]");
-let activeCategory = "all";
-
-const productsGrid = document.getElementById("productsGrid");
-const categoryTabs = document.getElementById("categoryTabs");
-const offersGrid = document.getElementById("offersGrid");
-const cartDrawer = document.getElementById("cartDrawer");
-const cartOverlay = document.getElementById("cartOverlay");
-const cartItems = document.getElementById("cartItems");
-const cartCount = document.getElementById("cartCount");
-const cartTotal = document.getElementById("cartTotal");
-const checkoutModal = document.getElementById("checkoutModal");
-
-function renderCategories() {
-  categoryTabs.innerHTML = Object.entries(categoryNames).map(([key, name]) =>
-    `<button class="${activeCategory === key ? "active" : ""}" data-category="${key}">${name}</button>`
-  ).join("");
-  categoryTabs.querySelectorAll("button").forEach(btn => {
-    btn.addEventListener("click", () => {
-      activeCategory = btn.dataset.category;
-      renderCategories();
-      renderProducts();
-    });
-  });
+let currentFilter="الكل", cart=[];
+const grid=document.getElementById("menuGrid");
+function renderMenu(){
+ const q=(document.getElementById("searchInput")?.value||"").trim();
+ const data=menu.filter(x=>(currentFilter==="الكل"||x.c===currentFilter)&&(!q||x.n.includes(q)||x.c.includes(q)));
+ grid.innerHTML=data.map((x,idx)=>`<article class="menu-item"><div class="item-img-wrap"><img src="${x.i}" alt="${x.n}" loading="lazy" onerror="this.src='https://via.placeholder.com/300x200/2a110d/f4a20c?text=${encodeURIComponent(x.n)}'"></div><h3>${x.n}</h3><p>${x.c} • طعم أصيل وجودة مضمونة</p><div class="price-row"><span class="price">${x.p} ج</span><button class="add-btn" onclick="addToCart(${menu.indexOf(x)})">+ أضف</button></div></article>`).join("")||'<p>مفيش نتائج مطابقة للبحث.</p>';
 }
-
-function renderProducts() {
-  const filtered = activeCategory === "all"
-    ? products
-    : products.filter(p => p.category === activeCategory);
-
-  productsGrid.innerHTML = filtered.map(product => `
-    <article class="product-card">
-      <div class="product-visual visual-${product.category}">
-        <img src="${product.image}" alt="${product.name}" loading="lazy">
-      </div>
-      <div class="product-info">
-        <h3>${product.name}</h3>
-        <p>${product.description}</p>
-        <div class="product-bottom">
-          <span class="price">${product.price} جنيه</span>
-          <button class="add-btn" data-id="${product.id}">أضف +</button>
-        </div>
-      </div>
-    </article>
-  `).join("");
-
-  productsGrid.querySelectorAll(".add-btn").forEach(btn => {
-    btn.addEventListener("click", () => addToCart(Number(btn.dataset.id)));
-  });
-}
-
-function addToCart(id) {
-  const item = cart.find(i => i.id === id);
-  if (item) item.qty++;
-  else cart.push({ id, qty: 1 });
-  saveCart();
-  openCart();
-}
-
-function changeQty(id, amount) {
-  const item = cart.find(i => i.id === id);
-  if (!item) return;
-  item.qty += amount;
-  if (item.qty <= 0) cart = cart.filter(i => i.id !== id);
-  saveCart();
-}
-
-function saveCart() {
-  localStorage.setItem("kosharyHendCart", JSON.stringify(cart));
-  renderCart();
-}
-
-function renderCart() {
-  const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
-  const total = cart.reduce((sum, item) => {
-    const product = products.find(p => p.id === item.id);
-    return sum + product.price * item.qty;
-  }, 0);
-
-  cartCount.textContent = totalItems;
-  cartTotal.textContent = `${total} جنيه`;
-
-  if (!cart.length) {
-    cartItems.innerHTML = `<div class="empty-cart">السلة فاضية حاليًا 🛒<br>اختار أكلك المفضل وابدأ الطلب.</div>`;
-    return;
-  }
-
-  cartItems.innerHTML = cart.map(item => {
-    const product = products.find(p => p.id === item.id);
-    return `
-      <div class="cart-item">
-        <div>
-          <h4>${product.name}</h4>
-          <small>${product.price * item.qty} جنيه</small>
-          <div class="qty-controls">
-            <button data-action="minus" data-id="${product.id}">−</button>
-            <strong>${item.qty}</strong>
-            <button data-action="plus" data-id="${product.id}">+</button>
-          </div>
-        </div>
-        <div>${product.icon}</div>
-      </div>
-    `;
-  }).join("");
-
-  cartItems.querySelectorAll("button").forEach(btn => {
-    const amount = btn.dataset.action === "plus" ? 1 : -1;
-    btn.addEventListener("click", () => changeQty(Number(btn.dataset.id), amount));
-  });
-}
-
-function openCart() {
-  cartDrawer.classList.add("open");
-  cartOverlay.classList.add("open");
-}
-function closeCart() {
-  cartDrawer.classList.remove("open");
-  cartOverlay.classList.remove("open");
-}
-
-function openCheckout() {
-  if (!cart.length) {
-    alert("السلة فاضية. اختار المنتجات الأول.");
-    return;
-  }
-  checkoutModal.classList.add("open");
-}
-function closeCheckout() {
-  checkoutModal.classList.remove("open");
-}
-
-document.getElementById("openCart").addEventListener("click", openCart);
-document.getElementById("closeCart").addEventListener("click", closeCart);
-cartOverlay.addEventListener("click", closeCart);
-document.getElementById("checkoutBtn").addEventListener("click", openCheckout);
-document.getElementById("closeModal").addEventListener("click", closeCheckout);
-
-document.getElementById("checkoutForm").addEventListener("submit", (event) => {
-  event.preventDefault();
-
-  const formData = new FormData(event.target);
-  const name = formData.get("name");
-  const phone = formData.get("phone");
-  const address = formData.get("address");
-  const notes = formData.get("notes");
-
-  const lines = cart.map(item => {
-    const product = products.find(p => p.id === item.id);
-    return `${product.name} × ${item.qty} = ${product.price * item.qty} جنيه`;
-  });
-
-  const total = cart.reduce((sum, item) => {
-    const product = products.find(p => p.id === item.id);
-    return sum + product.price * item.qty;
-  }, 0);
-
-  const message = [
-    "السلام عليكم، عايز أطلب من كشري هند:",
-    "",
-    ...lines,
-    "",
-    `الإجمالي: ${total} جنيه`,
-    "",
-    `الاسم: ${name}`,
-    `رقم الهاتف: ${phone}`,
-    `العنوان: ${address}`,
-    `ملاحظات: ${notes || "لا يوجد"}`
-  ].join("\n");
-
-  window.open(`https://wa.me/201080343968?text=${encodeURIComponent(message)}`, "_blank");
-});
-
-document.getElementById("menuToggle").addEventListener("click", () => {
-  document.getElementById("mainNav").classList.toggle("open");
-});
-
-offersGrid.innerHTML = offers.map(offer => `
-  <article class="offer-card">
-    <h3>${offer.name}</h3>
-    <ul>${offer.items.map(item => `<li>${item}</li>`).join("")}</ul>
-    <div class="offer-price">${offer.price}</div>
-    <a class="btn btn-outline" href="#menu">اختار طلبك</a>
-  </article>
-`).join("");
-
-renderCategories();
-renderProducts();
-renderCart();
+document.querySelectorAll("#filters button").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll("#filters button").forEach(x=>x.classList.remove("active"));b.classList.add("active");currentFilter=b.dataset.filter;renderMenu()}));
+function filterMenu(cat){currentFilter=cat;document.querySelectorAll("#filters button").forEach(b=>b.classList.toggle("active",b.dataset.filter===cat));document.getElementById("menu").scrollIntoView({behavior:"smooth"});renderMenu()}
+function addToCart(i){cart.push(menu[i]);updateCart();showToast("اتضاف للسلة 🔥")}
+function updateCart(){document.getElementById("cartCount").textContent=cart.length;document.getElementById("cartItems").innerHTML=cart.length?cart.map((x,i)=>`<div class="cart-line"><div><img src="${x.i}" class="cart-thumb" alt=""><div><b>${x.n}</b><small>${x.c}</small></div></div><div><b>${x.p} ج</b><br><button onclick="removeItem(${i})">حذف</button></div></div>`).join(""):"<p style='color:#a89189;text-align:center;margin-top:50px'>السلة فاضية.. اطلب حاجة حلوة 😋</p>";document.getElementById("cartTotal").textContent=cart.reduce((a,x)=>a+x.p,0)+" جنيه"}
+function removeItem(i){cart.splice(i,1);updateCart()}
+function openCart(){document.getElementById("cartDrawer").classList.add("open")}
+function closeCart(e){if(!e||e.target.id==="cartDrawer")document.getElementById("cartDrawer").classList.remove("open")}
+function checkout(){if(!cart.length){showToast("السلة فاضية 😅");return}let total=cart.reduce((a,x)=>a+x.p,0);let items=cart.map(x=>x.n).join("، ");let msg=encodeURIComponent(`مرحباً كشري هند 👋%0Aعايز أطلب: ${items}%0Aالإجمالي التقريبي: ${total} جنيه`);window.open(`https://wa.me/201210195153?text=${msg}`,"_blank")}
+function showToast(t){const el=document.getElementById("toast");el.textContent=t;el.classList.add("show");setTimeout(()=>el.classList.remove("show"),2200)}
+function toggleMobileNav(){document.getElementById("mobileNav").classList.toggle("open")}
+renderMenu();updateCart();

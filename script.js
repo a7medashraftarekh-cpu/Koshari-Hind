@@ -1,27 +1,27 @@
 const products = [
-  { id: 1, category: "koshary", name: "كشري صغير", description: "أرز ومكرونة وعدس وحمص وصلصة وبصل مقرمش.", price: 20, icon: "🍲" },
-  { id: 2, category: "koshary", name: "كشري وسط", description: "خلطة كشري هند الأصلية بحجم مناسب.", price: 25, icon: "🍲" },
-  { id: 3, category: "koshary", name: "كشري كبير", description: "طبق كبير مليان من كل مكونات الكشري.", price: 30, icon: "🍲" },
-  { id: 4, category: "koshary", name: "كشري سوبر", description: "وجبة أكبر لمحبي الكشري.", price: 35, icon: "🍲" },
-  { id: 5, category: "koshary", name: "كشري جامبو", description: "حجم جامبو من خلطة كشري هند.", price: 40, icon: "🍲" },
-  { id: 6, category: "koshary", name: "كشري هند", description: "اختيار مميز من كشري هند.", price: 50, icon: "👑" },
+  { id: 1, category: "koshary", name: "كشري صغير", description: "أرز ومكرونة وعدس وحمص وصلصة وبصل مقرمش.", price: 20, icon: "🍲", image: "assets/food-koshary/koshary-small.svg" },
+  { id: 2, category: "koshary", name: "كشري وسط", description: "خلطة كشري هند الأصلية بحجم مناسب.", price: 25, icon: "🍲", image: "assets/food-koshary/koshary-small.svg" },
+  { id: 3, category: "koshary", name: "كشري كبير", description: "طبق كبير مليان من كل مكونات الكشري.", price: 30, icon: "🍲", image: "assets/food-koshary/koshary-small.svg" },
+  { id: 4, category: "koshary", name: "كشري سوبر", description: "وجبة أكبر لمحبي الكشري.", price: 35, icon: "🍲", image: "assets/food-koshary/koshary-small.svg" },
+  { id: 5, category: "koshary", name: "كشري جامبو", description: "حجم جامبو من خلطة كشري هند.", price: 40, icon: "🍲", image: "assets/food-koshary/koshary-small.svg" },
+  { id: 6, category: "koshary", name: "كشري هند", description: "اختيار مميز من كشري هند.", price: 50, icon: "👑", image: "assets/food-koshary/koshary-large.svg" },
 
-  { id: 7, category: "hawawshi", name: "حواوشي عادي", description: "رغيف حواوشي محمص بحشوة متبلة.", price: 35, icon: "🥙" },
-  { id: 8, category: "hawawshi", name: "حواوشي جبنة", description: "حواوشي مع إضافة جبنة.", price: 40, icon: "🥙" },
-  { id: 9, category: "hawawshi", name: "حواوشي سوبر", description: "حواوشي بحجم أكبر وحشوة أغنى.", price: 45, icon: "🥙" },
-  { id: 10, category: "hawawshi", name: "حواوشي ميكس", description: "اختيار مميز من الحواوشي.", price: 50, icon: "🥙" },
+  { id: 7, category: "hawawshi", name: "حواوشي عادي", description: "رغيف حواوشي محمص بحشوة متبلة.", price: 35, icon: "🥙", image: "assets/food-hawawshi/hawawshi.svg" },
+  { id: 8, category: "hawawshi", name: "حواوشي جبنة", description: "حواوشي مع إضافة جبنة.", price: 40, icon: "🥙", image: "assets/food-hawawshi/hawawshi.svg" },
+  { id: 9, category: "hawawshi", name: "حواوشي سوبر", description: "حواوشي بحجم أكبر وحشوة أغنى.", price: 45, icon: "🥙", image: "assets/food-hawawshi/hawawshi.svg" },
+  { id: 10, category: "hawawshi", name: "حواوشي ميكس", description: "اختيار مميز من الحواوشي.", price: 50, icon: "🥙", image: "assets/food-hawawshi/hawawshi.svg" },
 
-  { id: 11, category: "chicken", name: "ربع فرخة", description: "فراخ مشوية بتتبيلة شرقية.", price: 85, icon: "🍗" },
-  { id: 12, category: "chicken", name: "نصف فرخة", description: "نصف فرخة مشوية.", price: 160, icon: "🍗" },
-  { id: 13, category: "chicken", name: "فرخة كاملة", description: "فرخة كاملة مناسبة للمشاركة.", price: 300, icon: "🍗" },
+  { id: 11, category: "chicken", name: "ربع فرخة", description: "فراخ مشوية بتتبيلة شرقية.", price: 85, icon: "🍗", image: "assets/food-chicken/chicken.svg" },
+  { id: 12, category: "chicken", name: "نصف فرخة", description: "نصف فرخة مشوية.", price: 160, icon: "🍗", image: "assets/food-chicken/chicken.svg" },
+  { id: 13, category: "chicken", name: "فرخة كاملة", description: "فرخة كاملة مناسبة للمشاركة.", price: 300, icon: "🍗", image: "assets/food-chicken/chicken.svg" },
 
-  { id: 14, category: "hawawshi", name: "كريب فراخ", description: "كريب بحشوة الفراخ.", price: 45, icon: "🌯" },
-  { id: 15, category: "hawawshi", name: "كريب ميكس", description: "كريب ميكس بحشوة متنوعة.", price: 50, icon: "🌯" },
-  { id: 16, category: "hawawshi", name: "كريب مشكل جبنة", description: "كريب مع تشكيلة جبن.", price: 55, icon: "🌯" },
+  { id: 14, category: "hawawshi", name: "كريب فراخ", description: "كريب بحشوة الفراخ.", price: 45, icon: "🌯", image: "assets/food-hawawshi/hawawshi.svg" },
+  { id: 15, category: "hawawshi", name: "كريب ميكس", description: "كريب ميكس بحشوة متنوعة.", price: 50, icon: "🌯", image: "assets/food-hawawshi/hawawshi.svg" },
+  { id: 16, category: "hawawshi", name: "كريب مشكل جبنة", description: "كريب مع تشكيلة جبن.", price: 55, icon: "🌯", image: "assets/food-hawawshi/hawawshi.svg" },
 
-  { id: 17, category: "drinks", name: "بيبسي", description: "مشروب غازي بارد.", price: 15, icon: "🥤" },
-  { id: 18, category: "drinks", name: "مياه معدنية", description: "مياه معدنية باردة.", price: 10, icon: "💧" },
-  { id: 19, category: "drinks", name: "عصير", description: "اختيار من العصائر المتاحة.", price: 20, icon: "🧃" }
+  { id: 17, category: "drinks", name: "بيبسي", description: "مشروب غازي بارد.", price: 15, icon: "🥤", image: "assets/drinks/drinks.svg" },
+  { id: 18, category: "drinks", name: "مياه معدنية", description: "مياه معدنية باردة.", price: 10, icon: "💧", image: "assets/drinks/drinks.svg" },
+  { id: 19, category: "drinks", name: "عصير", description: "اختيار من العصائر المتاحة.", price: 20, icon: "🧃", image: "assets/drinks/drinks.svg" }
 ];
 
 const offers = [
@@ -72,7 +72,7 @@ function renderProducts() {
   productsGrid.innerHTML = filtered.map(product => `
     <article class="product-card">
       <div class="product-visual visual-${product.category}">
-        <span class="food-icon">${product.icon}</span>
+        <img src="${product.image}" alt="${product.name}" loading="lazy">
       </div>
       <div class="product-info">
         <h3>${product.name}</h3>
